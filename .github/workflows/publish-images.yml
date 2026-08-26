@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - .github/workflows/publish-images.yml # self
-      - php/
+      - php/**
   workflow_dispatch: 
 
 jobs:
@@ -42,4 +42,4 @@ jobs:
           file: ./php/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghrc.io/matita008/pterodactyl-eggs:php
+          tags: ghcr.io/matita008/pterodactyl-eggs:php
