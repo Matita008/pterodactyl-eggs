@@ -41,4 +41,4 @@ jobs:
           file: ./php/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghrc.io/Matita008/pterodactyl-eggs:php
+          tags: ghrc.io/matita008/pterodactyl-eggs:php
