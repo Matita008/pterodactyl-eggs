@@ -5,14 +5,22 @@ RUN apt-get update
 
 RUN apt install -y nginx php-fpm
 # Required extensions
-RUN apt install -y php-{curl,exif,gd,mbstring,mysql,pdo,xml}
+RUN apt-get install -y \
+    php-curl \
+    php-exif \
+    php-gd \
+    php-mbstring \
+    php-mysql \
+    php-pdo \
+    php-xml
 
-RUN adduser -D -h /var/www/html www-data && mkdir -p /var/www/html 
 
-USER        www-data
+RUN mkdir -p /var/www/html && chown -R www-data:www-data /var/www/html
+
 ENV         USER=www-data HOME=/var/www/html
-WORKDIR     /home/container
+WORKDIR     /var/www/html
 
 # Copy entrypoint script
-COPY ./entrypoint.sh /entrypoint.sh
+COPY --chown=www-data:www-data ./entrypoint.sh /entrypoint.sh
+USER root
 CMD ["/bin/bash", "/entrypoint.sh"]
