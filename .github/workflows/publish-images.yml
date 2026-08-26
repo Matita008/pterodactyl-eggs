@@ -7,6 +7,7 @@ on:
     paths:
       - .github/workflows/publish-images.yml # self
       - php/
+  workflow_dispatch: 
 
 jobs:
   build-and-push:
