@@ -14,6 +14,7 @@ RUN apt-get install -y \
     php-pdo \
     php-xml
 
+RUN apt-get install -y iproute2 ca-certificates bash
 
 RUN mkdir -p /var/www/html && chown -R www-data:www-data /var/www/html
 
